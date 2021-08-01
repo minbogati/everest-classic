@@ -3,7 +3,7 @@
     <footer id="footer">
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong>Reveal</strong>. All Rights Reserved
+                &copy; Copyright <strong>Everest Classic Traders</strong>. All Rights Reserved {{date('Y')}}
             </div>
             <div class="credits">
                 <!--
@@ -12,7 +12,7 @@
                 Licensing information: https://bootstrapmade.com/license/
                 Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
               -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="https://bootstrapmade.com/"><a href="http://minbogati.com.np/?i=1">TechMin</a></a>
             </div>
         </div>
     </footer><!-- End Footer -->

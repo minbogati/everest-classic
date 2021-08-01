@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend/welcome');
 });
-
+Route::post('help/message','frontend\FrontendController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

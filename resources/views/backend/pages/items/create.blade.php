@@ -73,15 +73,6 @@
                                <input type="file" name="image" id="image">
                            </div>
                        </div>
-
-                   </div> <div class="row">
-                       <div class="col">
-                           <div class="form-group">
-                               <label for="image">Image</label>
-                               <input type="file" name="image" id="image">
-                           </div>
-                       </div>
-
                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-danger">Reset</button>

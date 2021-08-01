@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Item;
+use App\Models\Inquiry;
 use Illuminate\Http\Request;
 
-class ItemController extends Controller
+class FrontendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return 'hello';
+        //
     }
 
     /**
@@ -25,7 +25,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.items.create');
+        //
     }
 
     /**
@@ -36,33 +36,14 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+       $this->validate($request,[
             'name' => 'required',
-            'company' => 'required',
-            'type' => 'required',
-            'butta' => 'required',
-            'machinery' => 'required',
-            'details' => 'required',
-            'image' => 'required',
-            ]);
-        if ($request->hasFile('image'))
-        {
-            $this->validate($request,[
-                'image'=>'image|mimes:jpeg,png,jpg,svg|max:5120',
-            ]);
-            $filename = fileUpload($request->file('image'),'assets/img/');
-           Item::create([
-                'name' => $request['name'],
-            'company' => $request['company'],
-                'type' => $request['type'],
-                'butta' => $request['butta'],
-                'machinery' => $request['machinery'],
-                'image' => $filename??'',
-                ]);
-        }else{
-            Item::create($request->all());
-        }
-        return redirect('items')->with('message','Item Added Successfully');
+            'contact' => 'required',
+            'email' => 'required',
+            'message'=> 'required'
+        ]);
+        Inquiry::create($request->all());
+        return redirect('/')->with('message','Message sent Successfully');
     }
 
     /**
