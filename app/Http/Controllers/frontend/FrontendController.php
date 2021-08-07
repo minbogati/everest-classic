@@ -4,6 +4,9 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Inquiry;
+use App\Models\Item;
+use App\Models\Service;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -15,7 +18,10 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        $teams = Team::all();
+        $items = Item::all();
+        return view('frontend.welcome',compact('services','teams','items'));
     }
 
     /**
@@ -54,7 +60,8 @@ class FrontendController extends Controller
      */
     public function show($id)
     {
-        //
+        $design = Item::findOrfail($id);
+        return view('frontend.details', compact('design'));
     }
 
     /**

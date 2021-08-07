@@ -15,7 +15,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return 'hello';
+        $items = Item::all();
+        return view('backend.pages.items.index',compact('items'));
     }
 
     /**
@@ -45,18 +46,18 @@ class ItemController extends Controller
             'details' => 'required',
             'image' => 'required',
             ]);
-        if ($request->hasFile('image'))
-        {
+        if ($request->hasFile('image')){
             $this->validate($request,[
-                'image'=>'image|mimes:jpeg,png,jpg,svg|max:5120',
+                'image' => 'image|mimes:jpeg,png,jpg,svg|max:5120',
             ]);
-            $filename = fileUpload($request->file('image'),'assets/img/');
+            $filename = fileUpload($request->file('image'),'images/items/');
            Item::create([
                 'name' => $request['name'],
             'company' => $request['company'],
                 'type' => $request['type'],
                 'butta' => $request['butta'],
-                'machinery' => $request['machinery'],
+               'details' => $request['details'],
+               'machinery' => $request['machinery'],
                 'image' => $filename??'',
                 ]);
         }else{
@@ -84,7 +85,8 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        //
+       $items = Item::findOrfail($id);
+       return view('backend.pages.items.edit',compact('items'));
     }
 
     /**
@@ -96,7 +98,34 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Item::findOrfail($id);
+        $this->validate($request,[
+            'name' => 'required',
+            'company' => 'required',
+            'type' => 'required',
+            'butta' => 'required',
+            'machinery' => 'required',
+            'details' => 'required',
+            'image' => 'required',
+            ]);
+        if ($request->hasFile('image')){
+            $this->validate($request,[
+                'image' => 'image|mimes:jpeg,png,jpg,svg|max:5120',
+            ]);
+            $filename = fileUpload($request->file('image'),'images/items/');
+           $item->update([
+                'name' => $request['name'],
+            'company' => $request['company'],
+                'type' => $request['type'],
+                'butta' => $request['butta'],
+               'details' => $request['details'],
+               'machinery' => $request['machinery'],
+                'image' => $filename??'',
+                ]);
+        }else{
+            $item->update($request->all());
+        }
+        return redirect('items')->with('message','Item Updated Successfully');
     }
 
     /**
@@ -107,6 +136,8 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $items = Item::findOrfail($id);
+        $items->delete();
+        return redirect('items')->with('message','Item Deleted Successfully');
     }
 }

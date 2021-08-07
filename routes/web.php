@@ -18,7 +18,13 @@ Route::get('/', function () {
     return view('frontend/welcome');
 });
 Route::post('help/message','frontend\FrontendController@store');
+Route::get('/','frontend\FrontendController@index');
+Route::get('/design/details/{id}','frontend\FrontendController@show');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('help/message', 'HomeController@help');
 Route::resource('items','Backend\ItemController');
+Route::resource('services','ServiceController');
+Route::resource('teams','TeamController');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inquiry;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('backend.home');
+    }
+
+    public function help()
+    {
+    $help = Inquiry::all();
+    return view('backend.pages.inquiry.index',compact('help'));
     }
 }

@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Items</h1>
+                        <h1 class="m-0">Interior Design</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Items</a></li>
+                            <li class="breadcrumb-item"><a href="#">Design</a></li>
                             <li class="breadcrumb-item active">Add</li>
                         </ol>
                     </div><!-- /.col -->
@@ -22,6 +22,15 @@
         <!-- /.content-header -->
         <section class="content">
             <div class="container-fluid">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{url('/items')}}" method="post" enctype="multipart/form-data">
                     @csrf
                 <div class="row">
@@ -61,8 +70,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="details">Detail's</label>
-                                <textarea name="details" id="details" cols="30" rows="5" class="form-control"></textarea>
+                                <label for="details">Item Included In this design</label>
+                                <textarea name="details" id="details" class="ckeditor form-control"></textarea>
                             </div>
                         </div>
                     </div>
@@ -80,4 +89,10 @@
             </div>
         </section>
     </div>
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
 @endsection
