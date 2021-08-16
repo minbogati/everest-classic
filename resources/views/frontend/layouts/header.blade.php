@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Everest Classic Traders</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
+    <title>Everest Classic Traders | Interior Design in Butwal, Nepal </title>
+    <meta name="author" content="Everest Classic">
+    <meta content="Interior Design & Interior Solution in Butwal at everestclassic.com.np - An Online & Offline Interior Design solution in Nepal, A common search platform, interior design in butwal, interior design in nepal, interior design butwal, interior designers near me, interior design near me, home design, interior design, home interior, living room design, interior decoration, interior designers near me" name="description">
+    <meta content="Everest Classic Traders, Everest classic, Everest interior design, everest interior, interior design in butwal, interior design in nepal, interior design butwal, interior designers near me, interior design near me, home design, interior design, home interior, living room design, interior decoration, interior designers near me, modern interior design, house interior design, bedroom interior design, living room interior design, interior decorator near me, modern house interior, office interior design, interior design websites" name="keywords">
     <!-- Favicons -->
     <link href="{{asset('assets/img/logo.jpg')}}" rel="icon">
     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
